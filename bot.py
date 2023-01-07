@@ -15,10 +15,9 @@ class Bot(commands.Bot):
 
     async def setup_hook(self):
         keep_alive()
-        for nm in listdir("command"):
-            if not nm.startswith(("_", ".")):
-                n = f"commands.{nm[:-3] if nm.endswith('.py') else nm}"
-                await bot.load_extension(n)
+        await bot.load_extension("command.verify")
+        await bot.load_extension("command.serverinfo")
+        await bot.load_extension("command.help")
         await self.tree.sync()
 
     async def on_ready(self):
