@@ -10,7 +10,7 @@ Token = environ["Token"]
 class Bot(commands.Bot):
     def __init__(self):
         super().__init__(
-            command_prefix="kl!", intents=Intents.all(), help_command=False
+            command_prefix="kl!", intents=Intents.all(), help_command=None
         )
 
     async def setup_hook(self):
